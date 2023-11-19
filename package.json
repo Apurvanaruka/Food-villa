@@ -1,0 +1,28 @@
+{
+  "name": "food_villa",
+  "version": "1.0.0",
+  "description": "This is Food ordring app which take online order",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apurvanaruka/Food-villa.git"
+  },
+  "author": "Apurva Naruka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Apurvanaruka/Food-villa/issues"
+  },
+  "homepage": "https://github.com/Apurvanaruka/Food-villa#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

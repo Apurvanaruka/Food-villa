@@ -1,0 +1,32 @@
+.header{
+    border: 3px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 70px;
+}
+
+.nav-item{
+    display: flex;
+}
+.nav-item > li{
+    list-style-type: none;
+    margin: 10px;
+}
+
+.restaurants-card{
+    width: 200px;
+    border: 2px solid green;
+}
+
+.restaurants-card > img{
+    width: 100%;
+
+}
+.restaurants-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
