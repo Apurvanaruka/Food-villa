@@ -8,7 +8,7 @@ const Body = () => {
     let searchTxt = "search";
 
     const [searchText, setSearchInput] = useState(); // return variable and function to update the variable
-    const [searchClicked, setSearchClecked] = useState("false");
+    const [restaurantsCard, setrestaurantsCard] = useState(restaurants);
 
     return (
         <>
@@ -32,7 +32,7 @@ const Body = () => {
                 key={2}
             >
                 {
-                    restaurants.restaurants.map((restaurant) => {
+                    restaurantsCard.restaurants.map((restaurant) => {
                         return <RestaurantsCard {...restaurant} />
                     })
                 }
