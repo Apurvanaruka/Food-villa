@@ -162,7 +162,7 @@ export const restaurantsList = [
             "type": "WEBLINK"
         }
     },
-    {
+    /*{
         "info": {
             "id": "247223",
             "name": "South Street",
@@ -1515,7 +1515,7 @@ export const restaurantsList = [
             "link": "https://www.swiggy.com/restaurants/laxmi-misthan-bhandar-munshi-bagh-alwar-locality-alwar-161672",
             "type": "WEBLINK"
         }
-    }
+    }*/
 ]
 
 
