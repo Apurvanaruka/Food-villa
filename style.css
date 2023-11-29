@@ -17,6 +17,8 @@
 }
 
 .restaurants-card{
+    padding: 1px;
+    margin: 10px 2px;
     width: 200px;
     border: 2px solid green;
 }

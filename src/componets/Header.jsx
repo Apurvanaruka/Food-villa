@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Title = () => (
     <a href='/'>
         <img
@@ -8,15 +10,15 @@ const Title = () => (
     </a>
 );
 
-
-
-
 const Header = () => {
+    const [title, setTitle] = useState("Food Villa");
     return (
 
         <div
             className='header'>
             <Title />
+                <h1>{title}</h1>
+            
             <ul className='nav-item'>
                 <li>Home</li>
                 <li>Contect Us</li>

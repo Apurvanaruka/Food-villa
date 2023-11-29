@@ -13,7 +13,7 @@ function FilterData(searchText,restaurants){
 const Body = () => {
 
     const [searchText, setSearchInput] = useState(""); // return variable and function to update the variable
-    const [restaurantsCard, setrestaurantsCard] = useState(restaurantsList);
+    const [restaurants, setrestaurantsCard] = useState(restaurantsList);
 
     return (
         <>
@@ -35,7 +35,7 @@ const Body = () => {
 
             <div className='restaurants-list' key={2}>
                 {
-                    restaurantsCard.map((restaurant) => {
+                    restaurants.map((restaurant) => {
                         return <RestaurantsCard {...restaurant.info} key={restaurant.info.id}/>
                     })
                 }
