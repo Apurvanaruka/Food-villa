@@ -33,3 +33,15 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.simmer-card{
+    padding: 1px;
+    margin: 10px 2px;
+    width: 200px;
+    height: 500px;
+    background-color: gray;
+}
+.simmer-card > img{
+    width: 100%;
+    height: 200px;
+}
