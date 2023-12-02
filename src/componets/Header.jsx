@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Logo from "../assests/img/foodvillalogo.png";
+import { Link } from "react-router-dom";
 
 const Title = () => (
     <a href='/'>
@@ -22,9 +23,9 @@ const Header = () => {
             <h1>{title}</h1>
 
             <ul className='nav-item'>
-                <li>Home</li>
-                <li>Contect Us</li>
-                <li>About Us</li>
+                <li><Link to="/" >Home</Link></li>
+                <li><Link to="/contactus">Contect Us</Link></li>
+                <li><Link to="/aboutus">About Us</Link></li>
                 <li>Cart</li>
             </ul>{
 
@@ -34,7 +35,7 @@ const Header = () => {
                     }
                 }>Login</button> :
                     <button onClick={
-                        () => {setIsLogin(true)}
+                        () => { setIsLogin(true) }
                     } >Logout</button>
                 )
             }

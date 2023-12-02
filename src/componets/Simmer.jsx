@@ -14,7 +14,7 @@ const RestaurantsCard = () => {
 const Simmer = () => {
     return (
         <div className="restaurants-list">
-            {Array(20).fill("").map(() => <RestaurantsCard />)}
+            {Array(20).fill("").map((e,index) => <RestaurantsCard key={index}/>)}
         
         </div>
     );

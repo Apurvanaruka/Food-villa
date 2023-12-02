@@ -2,6 +2,7 @@ import RestaurantsCard from "./RestautrentCard";
 import { useState, useEffect } from "react";
 import Simmer from "./Simmer";
 import Notfound from "./Notfound";
+import { SWIGGY_API_URL } from "../contants";
 
 function FilterData(searchText, restaurants) {
     const data = restaurants.filter(
@@ -21,7 +22,7 @@ const Body = () => {
     }, []);
 
     async function getResaurants() {
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.5922846&lng=76.62683059999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+        const data = await fetch(SWIGGY_API_URL);
         const json = await data.json();
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestuarants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
