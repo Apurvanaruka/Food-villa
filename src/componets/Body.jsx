@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Simmer from "./Simmer";
 import Notfound from "./Notfound";
 import { SWIGGY_API_URL } from "../contants";
+import { Link } from "react-router-dom";
 
 function FilterData(searchText, restaurants) {
     const data = restaurants.filter(
@@ -16,7 +17,7 @@ function FilterData(searchText, restaurants) {
 const Body = () => {
     const [searchText, setSearchInput] = useState('');
     const [allrestaurants, setAllRestaurants] = useState([]);
-    const [filteredRestaurants, setFilteredRestuarants] = useState(allrestaurants);
+    const [filteredRestaurants, setFilteredRestuarants] = useState([]);
     useEffect(() => {
         getResaurants();
     }, []);
@@ -24,12 +25,10 @@ const Body = () => {
     async function getResaurants() {
         const data = await fetch(SWIGGY_API_URL);
         const json = await data.json();
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestuarants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-
-    // (condition) ? true : false
-    // console.log(allrestaurants.length);
 
     return (allrestaurants?.length === 0) ? <Simmer /> : (
         <>
@@ -49,10 +48,10 @@ const Body = () => {
             </div>
 
             <div className='restaurants-list' key={2}>
-                {
+                {   
                     (filteredRestaurants?.length === 0) ? <Notfound /> :   
-                    filteredRestaurants.map((restaurant) => {
-                        return <RestaurantsCard {...restaurant.info} key={restaurant.info.id} />
+                    filteredRestaurants?.map((restaurant) => {
+                        return <Link to={"restaurentmenu/id="+restaurant.info.id} key={restaurant.info.id}> <RestaurantsCard {...restaurant.info}  /> </Link>
                     })
                 }
             </div>
