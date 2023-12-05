@@ -1,11 +1,12 @@
-import React, { Children } from 'react'
-import ReactDOM from 'react-dom/client'
-import Header from './componets/Header'
-import Body from './componets/Body'
-import Footer from './componets/Footer'
-import ErrorPage from './componets/ErrorPage'
-import ContactUs from './componets/ContactUs'
-import AboutUs from './componets/Aboutus'
+import React, { Children } from 'react';
+import ReactDOM from 'react-dom/client';
+import Header from './componets/Header';
+import Body from './componets/Body';
+import Footer from './componets/Footer';
+import ErrorPage from './componets/ErrorPage';
+import ContactUs from './componets/ContactUs';
+import AboutUs from './componets/Aboutus';
+import Profile from './componets/Profile';
 import RestaurantsMenu from './componets/RestautrentMenu'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
@@ -36,6 +37,12 @@ const appRouter = createBrowserRouter([
             {
                 path: "/aboutus",
                 element: <AboutUs />,
+                children:[
+                    {
+                        path: 'profile',
+                        element: <Profile name='apurva' />
+                    }
+                ]
             },
             {
                 path: "/contactus",
