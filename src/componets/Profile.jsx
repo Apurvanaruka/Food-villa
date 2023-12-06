@@ -14,7 +14,7 @@ class Profile extends React.Component {
     async componentDidMount() {                       // 4 
         console.log("component Did Mount");
         
-        const response = await fetch('https://api.github.com/users/krishnaik06');
+        const response = await fetch('https://api.github.com/users/Apurvanaruka');
         const json = await response.json();
         console.log(json);
           
