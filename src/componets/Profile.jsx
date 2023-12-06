@@ -1,9 +1,3 @@
-// const Profile = () => {
-//     return (
-//         <h1>Profile</h1>
-//     )
-// }
-
 import React from "react";
 
 class Profile extends React.Component {
@@ -11,34 +5,39 @@ class Profile extends React.Component {
     constructor(props) {                        // 1
         super(props);
         this.state = {
-            count: 0
+            userInfo : {},
         }
         console.log('constructor');
 
     }
 
-    componentDidMount() {                       // 4 
+    async componentDidMount() {                       // 4 
         console.log("component Did Mount");
+        
+        const response = await fetch('https://api.github.com/users/krishnaik06');
+        const json = await response.json();
+        console.log(json);
+          
+        this.setState({
+            userInfo : json
+        })
+    }
+
+    componentDidUpdate() {
+
     }
 
     render() {                                  // 2
         console.log('render');
         return (                               //  3
-        <> 
-            {
-                console.log('componentent')
-            }
-            <h1>Profile page</h1>
-            <h2>My name is {this.props.name}</h2>
-            <h2>welcome to my profile</h2>
-            <h3>count = {this.state.count}</h3>
-            <button onClick={() => {
-                console.log("clicked!")
-                this.setState({
-                    count: 1
-                })
-            }}>Click</button>
-        </>
+        <div> 
+            <h2>name {this.state.userInfo?.name}</h2>
+            <img src={this.state.userInfo?.avatar_url} alt="" />
+            <h3>{this.state.userInfo?.bio}</h3>
+            <h3>Follwers {this.state.userInfo?.followers}  Following {this.state.userInfo?.following}</h3>
+            <h2>Location :-  {this.state.userInfo?.location}</h2>
+            <h2>Company :- {this.state.userInfo?.company}</h2>           
+        </div>
         );
     }
 }
