@@ -2,9 +2,10 @@ import RestaurantsCard from "./RestautrentCard";
 import { useState, useEffect } from "react";
 import Simmer from "./Simmer";
 import Notfound from "./Notfound";
-import { SWIGGY_API_URL } from "../contants";
+// import { SWIGGY_API_URL } from "../contants";
 import { Link } from "react-router-dom";
 import { FilterData } from "../utils/helper";
+import { JSON } from "../contants";
 
 
 const Body = () => {
@@ -16,30 +17,30 @@ const Body = () => {
     }, []);
 
     async function getResaurants() {
-        const data = await fetch(SWIGGY_API_URL);
-        const json = await data.json();
+        // const data = await fetch(SWIGGY_API_URL);
+        // const json = await data.json();
+        
+        const json = JSON;
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestuarants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
     }
 
     return (allrestaurants?.length === 0) ? <Simmer /> : (
         <>
-            <div
-                // use React variable for state variables 
-                className='search-bar'
-                key={1}>
-                <input type="text"
+            <div className='' key={1}>
+                <input type="text" className="m-2 p-1 bg-gray-100 hover:bg-gray-200"
                     placeholder="search"
                     value={searchText}
                     onChange={(e) => { setSearchInput(e.target.value) }}
                 />
-                <button onClick={() => {
+                <button className="bg-blue-600 hover:bg-blue-500 text-white rounded-md p-1" onClick={() => {
                     const data = FilterData(searchText, allrestaurants);
                     setFilteredRestuarants(data);
                 }}>Search</button>
             </div>
 
-            <div className='restaurants-list' key={2}>
+            <div className='flex flex-wrap justify-start' key={2}>
                 {   
                     (filteredRestaurants?.length === 0) ? <Notfound /> :   
                     filteredRestaurants?.map((restaurant) => {
