@@ -1,20 +1,20 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { IMG_URL } from "../contants";
 import useRestaurant from "../utils/useRestaurant";
 
 const RestaurantsMenu = () => {
     const { id } = useParams();
-    const restaurantMenu = useRestaurant(id)
+    const restaurantMenu = useRestaurant(id);
     console.log(restaurantMenu);
     return (
-        <div className="restaurant-menu">
+        <div className="m-10 flex">
             <div>
-                <img src={IMG_URL + restaurantMenu?.info?.cloudinaryImageId} alt="" ></img>
+                <img className="w-96" src={IMG_URL + restaurantMenu?.info?.cloudinaryImageId} alt="" ></img>
             </div>
-            <div>
-                <h3>{restaurantMenu?.info?.name}</h3>
+            <div className="m-5">
+                <h1 className="text-3xl">{restaurantMenu?.info?.name}</h1>
                 <h4>{restaurantMenu?.info?.areaName}</h4>
+                <p>{restaurantMenu?.info?.cuisines.join(' ')}</p>
                 <h6>{restaurantMenu?.info?.avgRating} star</h6>
                 <h5>{restaurantMenu?.info?.costForTwo}</h5>
             </div>

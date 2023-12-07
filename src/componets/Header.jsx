@@ -6,7 +6,7 @@ import useOnline from "../utils/useOnline";
 const Title = () => (
     <a href='/'>
         <img
-            className='logo'
+            className='w-20'
             src={Logo}
             alt='Food Villa'
         ></img>
@@ -18,29 +18,30 @@ const Header = () => {
     const isOnline = useOnline();
     return (
 
-        <div
-            className='header'>
+        <div className='flex bg-gray-100 justify-between'>
             <Title />
-    
-
-            <ul className='nav-item'>
-                <li><Link to="/" >Home</Link></li>
-                <li><Link to="/contactus">Contect Us</Link></li>
-                <li><Link to="/aboutus">About Us</Link></li>
-                <li>Cart</li>
-            </ul>
-            <p>{(isOnline) ? '🟢' : '🔴' }</p>
-            {
-                (isLogin ? <button onClick={ // login button
-                    () => {
-                        setIsLogin(false)
-                    }
-                }>Login</button> :
-                    <button onClick={
-                        () => { setIsLogin(true) }
-                    } >Logout</button>
-                )
-            }
+            <div className='ml-auto my-7 mr-5'>
+                <ul className="flex" >
+                    <li className="mx-2"><Link to="/" >Home</Link></li>
+                    <li className="mx-2"><Link to="/contactus">Contect Us</Link></li>
+                    <li className="mx-2"><Link to="/aboutus">About Us</Link></li>
+                    <li className="mx-2">Cart</li>
+                    <p>{(isOnline) ? '🟢' : '🔴'}</p>
+                </ul>
+            </div>
+            <div className="my-7 mr-5">
+                {
+                    (isLogin ? <button className="mr-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md p-1" onClick={ // login button
+                        () => {
+                            setIsLogin(false)
+                        }
+                    }>Login</button> :
+                        <button className="mr-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md p-1" onClick={
+                            () => { setIsLogin(true) }
+                        } >Logout</button>
+                    )
+                }
+            </div>
         </div>
     );
 }

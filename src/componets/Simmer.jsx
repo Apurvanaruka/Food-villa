@@ -1,6 +1,6 @@
 const RestaurantsCard = () => {
     return (
-        <div className='simmer-card'>
+        <div className='bg-gray-100 h-96 w-40'>
             <img ></img>
             <h3>________</h3>
             <h4>________</h4>
@@ -13,7 +13,7 @@ const RestaurantsCard = () => {
 
 const Simmer = () => {
     return (
-        <div className="restaurants-list">
+        <div className="flex flex-wrap">
             {Array(20).fill("").map((e,index) => <RestaurantsCard key={index}/>)}
         
         </div>
