@@ -4,14 +4,7 @@ import Simmer from "./Simmer";
 import Notfound from "./Notfound";
 import { SWIGGY_API_URL } from "../contants";
 import { Link } from "react-router-dom";
-
-function FilterData(searchText, restaurants) {
-    const data = restaurants.filter(
-        (restaurant) => {
-            return restaurant.info.name.toLowerCase().includes(searchText.toLowerCase());
-        });
-    return data;
-};
+import { FilterData } from "../utils/helper";
 
 
 const Body = () => {
@@ -25,7 +18,6 @@ const Body = () => {
     async function getResaurants() {
         const data = await fetch(SWIGGY_API_URL);
         const json = await data.json();
-        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestuarants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }

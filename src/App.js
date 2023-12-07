@@ -1,16 +1,17 @@
-import React, { Children } from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './componets/Header';
 import Body from './componets/Body';
 import Footer from './componets/Footer';
 import ErrorPage from './componets/ErrorPage';
 import ContactUs from './componets/ContactUs';
-import AboutUs from './componets/Aboutus';
 import Profile from './componets/Profile';
 import RestaurantsMenu from './componets/RestautrentMenu'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import { lazy } from 'react';
+import Simmer from './componets/Simmer';
 
-
+const Aboutus = lazy(()=>import('./componets/Aboutus'));
 
 const AppLayout = () => {
     return (
@@ -36,11 +37,14 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/aboutus",
-                element: <AboutUs />,
+                element: 
+                <Suspense fallback={<Simmer/>} >
+                    <Aboutus/> 
+                </Suspense>,
                 children:[
                     {
                         path: 'profile',
-                        element: <Profile name='apurva' />
+                        element: <Profile />
                     }
                 ]
             },
