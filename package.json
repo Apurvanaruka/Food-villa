@@ -19,7 +19,9 @@
   "homepage": "https://github.com/Apurvanaruka/Food-villa#readme",
   "devDependencies": {
     "parcel": "^2.10.3",
-    "process": "^0.11.10"
+    "postcss": "^8.4.32",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.6"
   },
   "dependencies": {
     "react": "^18.2.0",
