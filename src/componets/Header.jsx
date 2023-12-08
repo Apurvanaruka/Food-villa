@@ -25,7 +25,7 @@ const Header = () => {
                     <li className="mx-2"><Link to="/" >Home</Link></li>
                     <li className="mx-2"><Link to="/contactus">Contect Us</Link></li>
                     <li className="mx-2"><Link to="/aboutus">About Us</Link></li>
-                    <li className="mx-2">Cart</li>
+                    <li className="mx-2"><Link to="/instamart">InstaMart</Link></li>
                     <p>{(isOnline) ? '🟢' : '🔴'}</p>
                 </ul>
             </div>

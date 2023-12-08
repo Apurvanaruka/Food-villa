@@ -10,6 +10,7 @@ import RestaurantsMenu from './componets/RestautrentMenu'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { lazy } from 'react';
 import Simmer from './componets/Simmer';
+import Instamart from './componets/Instamart';
 
 const Aboutus = lazy(()=>import('./componets/Aboutus'));
 
@@ -20,10 +21,8 @@ const AppLayout = () => {
             <Outlet />
             <Footer />
         </>
-
     );
 }
-
 
 const appRouter = createBrowserRouter([
     {
@@ -54,6 +53,10 @@ const appRouter = createBrowserRouter([
 
             },
             {
+                path: "/instamart",
+                element:<Instamart />
+            },
+            {
                 path:'/restaurentmenu/:id',
                 element:<RestaurantsMenu />
             }
@@ -61,7 +64,6 @@ const appRouter = createBrowserRouter([
     },
 
 ])
-
 
 root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={appRouter} />);
