@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './componets/Header';
 import Body from './componets/Body';
@@ -11,16 +11,30 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { lazy } from 'react';
 import Simmer from './componets/Simmer';
 import Instamart from './componets/Instamart';
+import userContext from './userContext';
 
-const Aboutus = lazy(()=>import('./componets/Aboutus'));
+const Aboutus = lazy(() => import('./componets/Aboutus'));
 
 const AppLayout = () => {
+
+    const [ user, setUser ] = useState(
+        {
+                name: "Apurva Naruka",
+                email: 'apurvanaruka1@gmail.com',
+                age: 21   
+        }
+    );
+
     return (
-        <>
+        <userContext.Provider value={{
+            user:user,
+            setUser: setUser
+        }}>
+
             <Header />
             <Outlet />
             <Footer />
-        </>
+        </ userContext.Provider>
     );
 }
 
@@ -36,11 +50,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/aboutus",
-                element: 
-                <Suspense fallback={<Simmer/>} >
-                    <Aboutus/> 
-                </Suspense>,
-                children:[
+                element:
+                    <Suspense fallback={<Simmer />} >
+                        <Aboutus />
+                    </Suspense>,
+                children: [
                     {
                         path: 'profile',
                         element: <Profile />
@@ -54,11 +68,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/instamart",
-                element:<Instamart />
+                element: <Instamart />
             },
             {
-                path:'/restaurentmenu/:id',
-                element:<RestaurantsMenu />
+                path: '/restaurentmenu/:id',
+                element: <RestaurantsMenu />
             }
         ],
     },
