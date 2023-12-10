@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 const ContactUs = () => {
+const item = useSelector(((state) => state))
+    console.log(item);
     return (
         <div>
             <h1>Contact Us</h1>
