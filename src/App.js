@@ -12,29 +12,34 @@ import { lazy } from 'react';
 import Simmer from './componets/Simmer';
 import Instamart from './componets/Instamart';
 import userContext from './userContext';
+import { Provider, useSelector } from 'react-redux';
+import store from './utils/store';
+import Cart from './componets/Cart';
 
 const Aboutus = lazy(() => import('./componets/Aboutus'));
 
 const AppLayout = () => {
 
-    const [ user, setUser ] = useState(
+    const [user, setUser] = useState(
         {
-                name: "Apurva Naruka",
-                email: 'apurvanaruka1@gmail.com',
-                age: 21   
+            name: "Apurva Naruka",
+            email: 'apurvanaruka1@gmail.com',
+            age: 21
         }
     );
 
     return (
-        <userContext.Provider value={{
-            user:user,
-            setUser: setUser
-        }}>
+        <Provider store={store}>
+            <userContext.Provider value={{
+                user: user,
+                setUser: setUser
+            }}>
 
-            <Header />
-            <Outlet />
-            <Footer />
-        </ userContext.Provider>
+                <Header />
+                <Outlet />
+                <Footer />
+            </ userContext.Provider>
+        </Provider>
     );
 }
 
@@ -73,6 +78,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/restaurentmenu/:id',
                 element: <RestaurantsMenu />
+            },
+            {
+                path: '/cart',
+                element: <Cart />
             }
         ],
     },

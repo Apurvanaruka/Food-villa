@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Logo from "../assests/img/foodvillalogo.png";
 import { Link } from "react-router-dom";
-import useOnline from "../utils/useOnline";
 import { useContext } from "react";
 import userContext from "../userContext";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const Title = () => (
     <a href='/'>
@@ -18,8 +18,9 @@ const Title = () => (
 
 const Header = () => {
     const [isLogin, setIsLogin] = useState(true);
-    const isOnline = useOnline();
-    const {user}  = useContext(userContext);
+    const { user } = useContext(userContext);
+    const item = useSelector((state) => state.item);
+
     return (
 
         <div className='flex bg-gray-100 justify-between shadow-md'>
@@ -30,7 +31,7 @@ const Header = () => {
                     <li className="mx-2"><Link to="/contactus">Contect Us</Link></li>
                     <li className="mx-2"><Link to="/aboutus">About Us</Link></li>
                     <li className="mx-2"><Link to="/instamart">InstaMart</Link></li>
-                    <p>{(isOnline) ? '🟢' : '🔴'}</p>
+                    <li className="mx-2"><Link to="/cart">cart {item?.length} </Link> </li>
                 </ul>
             </div>
             <h1 className="m-7">{user?.email} {user?.age}</h1>
@@ -46,6 +47,7 @@ const Header = () => {
                         } >Logout</button>
                     )
                 }
+
             </div>
         </div>
     );
