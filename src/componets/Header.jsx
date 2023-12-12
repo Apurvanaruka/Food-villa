@@ -34,17 +34,17 @@ const Header = () => {
                     <li className="mx-2"><Link to="/cart">cart {item?.length} </Link> </li>
                 </ul>
             </div>
-            <h1 className="m-7">{user?.email} {user?.age}</h1>
+            { isLogin && <h1 className="m-7">{user?.email} {user?.age}</h1>}
             <div className="my-7 mr-5">
                 {
                     (isLogin ? <button className="mr-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md p-1" onClick={ // login button
                         () => {
                             setIsLogin(false)
                         }
-                    }>Login</button> :
+                    }>Logout</button> :
                         <button className="mr-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md p-1" onClick={
                             () => { setIsLogin(true) }
-                        } >Logout</button>
+                        } >Login</button>
                     )
                 }
 
