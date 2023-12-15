@@ -1,0 +1,37 @@
+why we use test cases?
+when multiple dev work on same project. One can change something in code then testing helps them to ensure that new code doesn't 
+break other codes OR
+suppose we have 120 component and we want to add one more component to our app then testing give confidence to us the new component doesn't
+break existing code.
+
+what is test driven development?
+writing test cases even before developing component.
+
+
+Type of testing
+ - Manual Testing
+ - Automation Testing
+    - selenium Testing
+
+ - E2E Testing - Cover whole user expreince
+ - Headless browsers
+
+ - Unit Testing - It just test small part of project
+ - Integration Testing - Integration different component
+
+
+ Jest :- 
+    install testing library
+        @testing-library/react
+        jest
+    configure Jest
+        jest-config file npx jest --init only use one time 
+
+    npm run test
+        jest-enviroment-jsdom
+
+    create test folder __test__ (jest condier it as test files)
+        .test.js is industry standard
+    configre bable
+     -bable-jest @bable/core @bable/present-env
+    
