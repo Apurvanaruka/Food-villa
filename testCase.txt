@@ -27,11 +27,22 @@ Type of testing
     configure Jest
         jest-config file npx jest --init only use one time 
 
-    npm run test
+    npm run test  (validate error) 
         jest-enviroment-jsdom
 
-    create test folder __test__ (jest condier it as test files)
+    create test folder __test__ (jest condier it as test files)  (dunder file)
         .test.js is industry standard
+
+    create first test (error for import in js file)
     configre bable
      -bable-jest @bable/core @bable/present-env
+      (It has two ways to configure 
+        - create .json file
+        - create .bablerc file
+        )
     
+        bable requires json (javascript object and json are different things)
+
+
+
+test funtion expect something (expect | esecrse )
