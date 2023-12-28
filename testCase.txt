@@ -46,3 +46,17 @@ Type of testing
 
 
 test funtion expect something (expect | esecrse )
+
+
+
+test function cann't understand
+ - import statement   
+        - helper -babel
+ - jsx file
+        - helper -babel
+ - it try to read .png file as javascript and it show error
+        - make a dummy image and setup it
+        - jest helps =>  moduleNameMapper: {},
+
+test not found redux in app so <Provider></Provider> helps it.
+it does not understand Link so use StaticRouter come from react-router-dom/server

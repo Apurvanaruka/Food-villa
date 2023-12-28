@@ -8,7 +8,7 @@ import { addItem } from "../utils/cartSlice";
 
 const Title = () => (
     <a href='/'>
-        <img
+        <img id="" data-testid='logo'
             className='w-20'
             src={Logo}
             alt='Food Villa'
@@ -31,7 +31,7 @@ const Header = () => {
                     <li className="mx-2"><Link to="/contactus">Contect Us</Link></li>
                     <li className="mx-2"><Link to="/aboutus">About Us</Link></li>
                     <li className="mx-2"><Link to="/instamart">InstaMart</Link></li>
-                    <li className="mx-2"><Link to="/cart">cart {item?.length} </Link> </li>
+                    <li className="mx-2"><Link to="/cart" data-testid='cart'>cart {item?.length} </Link> </li>
                 </ul>
             </div>
             { isLogin && <h1 className="m-7">{user?.email} {user?.age}</h1>}
