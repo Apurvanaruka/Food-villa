@@ -1,1 +1,1 @@
-export default "dummy.png"
+export default "dummyLogo.png"
