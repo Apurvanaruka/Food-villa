@@ -8,7 +8,9 @@ const Footer = () => {
     const { user } = useContext(userContext);
 
     return (
-        <div className="bg-black text-white h-14 p-3 flex justify-center space-x-6">
+        <div
+            data-testid="footer-child"
+            className="bg-black text-white h-14 p-3 flex justify-center space-x-6">
             {/* <p>Powered by {user?.name} {user?.email} </p>
             <p>{(isOnline) ? '🟢' : '🔴'}</p> */}
             <div>
@@ -19,10 +21,10 @@ const Footer = () => {
             </div>
             <div>
                 <div>
-                contact us
+                    contact us
                 </div>
                 <div>
-                Legel
+                    Legel
                 </div>
             </div>
             <div>
