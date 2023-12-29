@@ -4,7 +4,9 @@ import Footer from '../../componets/Footer';
 
 test("Footer should be present",()=>{
         const footer = render(<Footer />);
-        // expect(footer).toBe()
-        console.log(footer);
+
+        const footerChild = footer.getByTestId('footer-child');
+        expect(footerChild.children.length).toBe(4);
+        // console.log(footerChild.children);
     }
 );
