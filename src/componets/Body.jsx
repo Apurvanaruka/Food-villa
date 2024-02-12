@@ -2,7 +2,7 @@ import RestaurantsCard from "./RestautrentCard";
 import { useState, useEffect, useContext } from "react";
 import Simmer from "./Simmer";
 import Notfound from "./Notfound";
-// import { SWIGGY_API_URL } from "../contants";
+import { SWIGGY_API_URL } from "../contants";
 import { Link } from "react-router-dom";
 import { FilterData } from "../utils/helper";
 import { JSON } from "../contants";
@@ -20,6 +20,7 @@ const Body = () => {
     async function getResaurants() {
         // const data = await fetch(SWIGGY_API_URL);
         // const json = await data.json();
+        // console.log(json);
 
         const json = JSON;
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -54,7 +55,7 @@ const Body = () => {
                     }}
                 />
             </div>
-            <div className='flex flex-wrap justify-start' key={2}>
+            <div data-testid="rest-list" className='flex flex-wrap justify-start' key={2} >
                 {
                     (filteredRestaurants?.length === 0) ? <Notfound /> :
                         filteredRestaurants?.map((restaurant) => {

@@ -13,7 +13,7 @@ const RestaurantsCard = () => {
 
 const Simmer = () => {
     return (
-        <div className="flex flex-wrap">
+        <div data-testid='simmer-list' className="flex flex-wrap space-x-5">
             {Array(20).fill("").map((e,index) => <RestaurantsCard key={index}/>)}
         
         </div>
